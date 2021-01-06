@@ -4,7 +4,8 @@ This is the change I made to include panes to lightweight-charts version 2.0
 
 
 in ChartModel class:
-        ```javascript 
+
+        ```
         ChartModel.prototype.create_subplot = function (index) {
             var pane = new Pane(this._private__timeScale, this);
             if (index !== undefined) {
