@@ -110,3 +110,33 @@ Also in the standalone development change this in "syncGuiWithModel" function:
 
 
 change the i > 1 to i >= 1 and set disableResize to false
+
+Create a chart as usual: 
+  var chart = LightweightCharts.createChart(document.body, {
+	width: 1200,
+	height: 600,
+      }) ;
+      
+  fill in some data
+    
+  var data = [
+	{ time: '2018-10-19', open: 54.62, high: 55.50, low: 54.52, close: 54.90 },
+	{ time: '2018-10-22', open: 55.08, high: 55.27, low: 54.61, close: 54.98 }, 
+	....
+	 ]  ;
+ 
+  var mainSeries = chart.addCandlestickSeries();
+
+  mainSeries.setData(data);
+  
+  var rsiPanel = chart._private__chartWidget._private__model.create_subplot(1) ;
+  
+  vl =  [	   
+    { time: '2018-10-19', value: 54.62 },
+    { time: '2018-10-22', value: 55.08 },
+    ....
+    ] ;
+    
+   var subLineSeries = chart.addLineSeries_p({}, 1) ;
+
+   subLineSeries.setData(vl);
